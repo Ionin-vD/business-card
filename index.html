@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Backend Developer</title>
+    <style>
+      :root {
+        --primary-color: #7703ca; /* Темно-фиолетовый */
+        --secondary-color: #4c0082; /* Индиго */
+        --dark-color: #1a1a1a; /* Почти черный */
+        --light-color: #f8f9fa;
+        --accent-color: #9370db; /* Светло-фиолетовый для акцентов */
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      }
+
+      body {
+        background-color: #f0f2f5;
+        color: var(--dark-color);
+        line-height: 1.6;
+        padding: 20px;
+      }
+
+      .card {
+        max-width: 800px;
+        margin: 0 auto;
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .header {
+        background: linear-gradient(
+          135deg,
+          var(--primary-color),
+          var(--secondary-color)
+        );
+        color: white;
+        padding: 50px 20px;
+        text-align: center;
+        position: relative;
+      }
+
+      .photo {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 5px solid rgba(255, 255, 255, 0.2);
+        margin: 0 auto 20px;
+        display: block;
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-bottom: 10px;
+        font-weight: 600;
+        letter-spacing: 0.5px;
+      }
+
+      .position {
+        font-size: 20px;
+        opacity: 0.9;
+        margin-bottom: 15px;
+        font-weight: 500;
+        color: var(--accent-color);
+      }
+
+      .tagline {
+        font-style: italic;
+        max-width: 600px;
+        margin: 0 auto;
+        opacity: 0.9;
+      }
+
+      .content {
+        padding: 40px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .section {
+        margin-bottom: 30px;
+      }
+
+      h2 {
+        color: var(--primary-color);
+        font-size: 24px;
+        margin-bottom: 20px;
+        padding-bottom: 8px;
+        border-bottom: 2px solid #e2e8f0;
+        display: flex;
+        align-items: center;
+      }
+
+      h2 i {
+        margin-right: 10px;
+        color: var(--accent-color);
+      }
+
+      .about-text {
+        line-height: 1.8;
+        margin-bottom: 15px;
+      }
+
+      .contacts {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+      }
+
+      .contact-item {
+        display: flex;
+        align-items: center;
+        margin-bottom: 10px;
+        flex: 1 1 200px;
+      }
+
+      .contact-icon {
+        margin-right: 12px;
+        color: var(--primary-color);
+        font-size: 22px;
+        width: 30px;
+        text-align: center;
+      }
+
+      .skills {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .skill {
+        background: #e2e8f0;
+        padding: 8px 18px;
+        border-radius: 20px;
+        font-size: 15px;
+        font-weight: 500;
+        color: var(--dark-color);
+      }
+
+      .skill.primary {
+        background-color: rgba(106, 13, 173, 0.1);
+        color: var(--primary-color);
+        border: 1px solid rgba(106, 13, 173, 0.3);
+      }
+
+      .skill.secondary {
+        background-color: rgba(75, 0, 130, 0.1);
+        color: var(--secondary-color);
+        border: 1px solid rgba(75, 0, 130, 0.3);
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .service {
+        background: var(--light-color);
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .service:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      }
+
+      .service h3 {
+        color: var(--primary-color);
+        margin-bottom: 10px;
+        display: flex;
+        align-items: center;
+      }
+
+      .service h3 i {
+        margin-right: 10px;
+      }
+
+      .footer {
+        text-align: center;
+        padding: 25px;
+        background: var(--light-color);
+        font-size: 15px;
+        color: #718096;
+      }
+
+      /* Адаптация для мобильных устройств */
+      @media (max-width: 768px) {
+        .card {
+          border-radius: 10px;
+        }
+
+        .header {
+          padding: 30px 15px;
+        }
+
+        .photo {
+          width: 130px;
+          height: 130px;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+
+        .position {
+          font-size: 18px;
+        }
+
+        .content {
+          padding: 30px 20px;
+        }
+
+        h2 {
+          font-size: 22px;
+        }
+
+        .contact-item {
+          flex: 1 1 100%;
+        }
+
+        .services {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      /* Адаптация для очень маленьких экранов */
+      @media (max-width: 480px) {
+        body {
+          padding: 10px;
+        }
+
+        .photo {
+          width: 110px;
+          height: 110px;
+        }
+
+        .header {
+          padding: 25px 10px;
+        }
+
+        h1 {
+          font-size: 24px;
+        }
+
+        .position {
+          font-size: 16px;
+        }
+      }
+
+      /* Стили для ссылок */
+      a {
+        color: var(--primary-color);
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      a:hover {
+        color: var(--accent-color);
+        text-decoration: underline;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+  </head>
+  <body>
+    <div class="card">
+      <div class="header">
+        <img src="./photo_1.jpg" alt="Dima Ionin" class="photo" />
+        <h1>Дмитрий Ионин</h1>
+        <div class="position">Backend Developer</div>
+        <div class="tagline">Создаю эффективные серверные решения</div>
+      </div>
+
+      <div class="content">
+        <div class="section">
+          <h2><i class="fas fa-user"></i> Обо мне</h2>
+          <p class="about-text" style="text-indent: 30px">
+            Я являюсь бэкенд-программистом с основным опытом работы на Go и
+            Java. Специализируюсь на создании высоконагруженных и
+            отказоустойчивых серверных приложений.
+          </p>
+          <p class="about-text" style="text-indent: 30px">
+            Могу оказать помощь в разработке сайтов, лабораторных работ и
+            создании серверов. Вкратце, занимаюсь разработкой решений под
+            конкретные задачи клиентов.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2><i class="fas fa-laptop-code"></i> Услуги</h2>
+          <div class="services">
+            <div class="service">
+              <h3><i class="fas fa-server"></i> Backend разработка</h3>
+              <p>
+                Создание серверной логики, RESTful API, микросервисной
+                архитектуры и баз данных
+              </p>
+            </div>
+            <div class="service">
+              <h3><i class="fas fa-code"></i> Лабораторные работы</h3>
+              <p>
+                Помощь в выполнении лабораторных работ по программированию на
+                Go, Java и другим языкам
+              </p>
+            </div>
+            <div class="service">
+              <h3><i class="fas fa-tasks"></i> Индивидуальные решения</h3>
+              <p>
+                Разработка программного обеспечения под конкретные бизнес-задачи
+                и требования
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2><i class="fas fa-cogs"></i> Навыки</h2>
+          <div class="skills">
+            <span class="skill primary">Golang</span>
+            <span class="skill secondary">Java</span>
+            <span class="skill">REST API</span>
+            <span class="skill">PostgreSQL</span>
+            <span class="skill">Docker</span>
+            <span class="skill">Kubernetes</span>
+            <span class="skill">Git</span>
+            <span class="skill">Linux</span>
+            <span class="skill">Microservices</span>
+          </div>
+        </div>
+
+        <div class="section">
+          <h2><i class="fas fa-envelope"></i> Контакты</h2>
+          <div class="contacts">
+            <div class="contact-item">
+              <span class="contact-icon"><i class="fab fa-telegram"></i></span>
+              <a href="https://t.me/iii_dima" target="_blank">@iii_dima</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon"><i class="fab fa-github"></i></span>
+              <a href="https://github.com/Ionin-vD" target="_blank"
+                >github.com/Ionin-vD</a
+              >
+            </div>
+            <div class="contact-item">
+              <span class="contact-icon"><i class="fas fa-envelope"></i></span>
+              <span>dmitrijionin46@xmail.ru</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer">© 2025 Dima Ionin. Все права защищены.</div>
+    </div>
+  </body>
+</html>
